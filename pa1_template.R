@@ -1,13 +1,3 @@
----
-title: "PA1_template1"
-output: html_document
----
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r, echo = TRUE}
 ## Code for reading the data
 ## after downloading the zip folder, we will now unzip its contents
 unzip("C:/Users/write/Documents/repdata_data_activity.zip")
@@ -22,10 +12,6 @@ names(activity_data)
 activity_days <- tapply(activity_data$steps, activity_data$date, sum)
 ## to plot the histogram
 hist(activity_days, main = "Steps per day", xlab = "steps", ylab = "days")
-```
-
-``
-````{r, echo=TRUE}
 ## mean and median of number of steps per day
 stepsmean <- mean(activity_days, na.rm = TRUE)
 
@@ -40,8 +26,6 @@ names(mean_daily) <- c("interval", "steps")
 
 
 plot(mean_daily$interval, mean_daily$steps, type = "l", xlab = "interval", ylab = "average number of steps")
-
-```{r, echo=TRUE}
 ##the five minute interval on average across all the days in the dataset contains the maximum number of steps
 mean_daily$interval[which.max(mean_daily$steps)]
 ##the max number of steps in a five minute interval is 835
@@ -84,9 +68,6 @@ median(dailysteps)
 
 ##histogram on cleaned data of steps against each day
 hist(dailysteps, main = "Daily Steps", xlab = "steps", ylab = "days")
-```
-
-```{r, echo=TRUE}
 steps_data <- aggregate(steps ~ date, activity1, sum)
 
 barplot(steps_data$steps, names.arg = steps_data$date, xlab = "date", ylab = "steps")
@@ -94,6 +75,4 @@ barplot(steps_data$steps, names.arg = steps_data$date, xlab = "date", ylab = "st
 xyplot(steps ~ interval | daytype, data = meandata, layout = c(2, 1), type = "l", na.rm = TRUE)
 
 
-```
-
-
+## 
